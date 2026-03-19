@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KnowledgeHub | Sistema Bibliotecario</title>
+    <title>KnowledgeHub | UPIICSA</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -15,7 +15,7 @@
         <ul class="nav-links">
             <li><a href="#" onclick="showAllBooks()">Inicio</a></li>
             <li><a href="#" onclick="openModal('modal-categorias')">Categorías</a></li>
-            <li><a href="#" onclick="openModal('modal-catalogo')">Catálogo</a></li>
+            <li><a href="#" onclick="openFullCatalog()">Catálogo</a></li>
             <li><a href="#" onclick="openModal('modal-cuenta')">Mi Cuenta</a></li>
         </ul>
     </nav>
@@ -31,10 +31,16 @@
     </div>
 </section>
 
+<section class="stats-bar">
+    <div class="stat-item"><strong>+15k</strong> Títulos</div>
+    <div class="stat-item"><strong>24/7</strong> Sala Digital</div>
+    <div class="stat-item"><strong>UPIICSA</strong> Sede Central</div>
+</section>
+
 <main class="container">
     <div class="header-main">
         <h2 id="display-title">Libros Destacados</h2>
-        <p id="display-subtitle">Explora las novedades del catálogo general.</p>
+        <p id="display-subtitle">Selección recomendada para este semestre.</p>
     </div>
     <div class="book-grid" id="mainBookGrid">
         </div>
@@ -93,3 +99,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
