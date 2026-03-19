@@ -10,9 +10,10 @@ const libros = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderGrid('mainBookGrid', libros);
+    renderGrid('mainBookGrid', libros.slice(0, 3)); // Solo mostramos 3 destacados al inicio
 });
 
+// MODALES
 function openModal(id) {
     document.getElementById(id).style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -23,36 +24,39 @@ function closeModal(id) {
     document.body.style.overflow = 'auto';
 }
 
-// FIX: Función para abrir TODO el catálogo
+// FIX: Función de CATÁLOGO GENERAL (Muestra todos)
 function openFullCatalog() {
-    document.getElementById('catalogo-title').innerText = "Catálogo General UPIICSA";
-    renderGrid('subCatalogGrid', libros, true); // Muestra TODOS los libros con Lorem Ipsum
+    const grid = document.getElementById('subCatalogGrid');
+    document.getElementById('catalogo-title').innerText = "Catálogo Institucional Completo";
+    renderGrid('subCatalogGrid', libros, true); // True activa el Lorem Ipsum
     openModal('modal-catalogo');
 }
 
-// Abre catálogo por categoría específica
+// Función de CATEGORÍA ESPECÍFICA
 function openSubCatalog(categoria) {
     const filtrados = libros.filter(l => l.cat === categoria);
-    document.getElementById('catalogo-title').innerText = `Biblioteca de ${categoria}`;
+    document.getElementById('catalogo-title').innerText = `Especialidad: ${categoria}`;
     renderGrid('subCatalogGrid', filtrados, true);
     openModal('modal-catalogo');
 }
 
 function renderGrid(containerId, data, withLorem = false) {
     const container = document.getElementById(containerId);
-    container.innerHTML = '';
+    if (!container) return;
     
+    container.innerHTML = '';
     data.forEach(libro => {
-        const desc = withLorem ? `<p style="font-size:0.8rem; color:#666; margin: 10px 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id porta nulla, ac maximus nisi.</p>` : '';
+        const desc = withLorem ? `<p style="color:#666; font-size:0.85rem; margin: 15px 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>` : '';
+        
         container.innerHTML += `
             <div class="book-card">
                 <img src="${libro.img}" alt="${libro.t}">
                 <div class="book-info">
-                    <span style="font-size:0.7rem; color:var(--secondary); font-weight:bold;">${libro.cat}</span>
-                    <h3>${libro.t}</h3>
-                    <p>Autor: ${libro.a}</p>
+                    <small style="color:var(--secondary); font-weight:700;">${libro.cat}</small>
+                    <h3 style="margin:5px 0;">${libro.t}</h3>
+                    <p style="color:#888; font-size:0.9rem;">${libro.a}</p>
                     ${desc}
-                    <button class="btn-status" onclick="alert('Verificando disponibilidad en Sede UPIICSA...')">Consultar</button>
+                    <button class="btn-status" style="width:100%; padding:12px; border-radius:12px; border:1px solid var(--primary); background:none; color:var(--primary); font-weight:700; cursor:pointer; margin-top:10px;" onclick="alert('Libro disponible en estantería física.')">Consultar</button>
                 </div>
             </div>
         `;

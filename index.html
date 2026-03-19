@@ -31,16 +31,29 @@
     </div>
 </section>
 
-<section class="stats-bar">
-    <div class="stat-item"><strong>+15k</strong> Títulos</div>
-    <div class="stat-item"><strong>24/7</strong> Sala Digital</div>
-    <div class="stat-item"><strong>UPIICSA</strong> Sede Central</div>
+<section class="stats-container">
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-val">+15k</span>
+            <span class="stat-lab">Títulos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-val">24/7</span>
+            <span class="stat-lab">Virtual</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-val">UPIICSA</span>
+            <span class="stat-lab">Sede Central</span>
+        </div>
+    </div>
 </section>
 
 <main class="container">
     <div class="header-main">
         <h2 id="display-title">Libros Destacados</h2>
-        <p id="display-subtitle">Selección recomendada para este semestre.</p>
+        <p id="display-subtitle">Novedades editoriales para la comunidad universitaria.</p>
     </div>
     <div class="book-grid" id="mainBookGrid">
         </div>
@@ -67,8 +80,7 @@
     <div class="modal-content large">
         <span class="close-btn" onclick="closeModal('modal-catalogo')">&times;</span>
         <h2 id="catalogo-title" class="section-title">Catálogo Completo</h2>
-        <div class="sub-catalog-grid" id="subCatalogGrid">
-            </div>
+        <div class="sub-catalog-grid" id="subCatalogGrid"></div>
     </div>
 </div>
 
@@ -77,20 +89,29 @@
         <span class="close-btn" onclick="closeModal('modal-cuenta')">&times;</span>
         <div class="profile-header">
             <div class="profile-img">
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Incognito">
             </div>
-            <div class="profile-basic-info">
+            <div class="profile-meta">
                 <h3>Alumno UPIICSA</h3>
-                <p class="tag">Estudiante Activo</p>
+                <span class="badge-status">Activo</span>
             </div>
         </div>
         <div class="profile-body">
-            <div class="info-row"><span>Carrera:</span> <strong>Ingeniería en Informática</strong></div>
-            <div class="info-row"><span>Boleta:</span> <strong>2026-600000</strong></div>
-            <div class="info-row"><span>Estatus:</span> <strong style="color: var(--primary);">Regular</strong></div>
-            <div class="profile-stats">
-                <div class="p-stat"><strong>1</strong><br>Préstamo</div>
-                <div class="p-stat"><strong>$0.00</strong><br>Multas</div>
+            <div class="info-field">
+                <label>Carrera:</label>
+                <strong>Ingeniería en Informática</strong>
+            </div>
+            <div class="info-field">
+                <label>Boleta:</label>
+                <strong>2026-600000</strong>
+            </div>
+            <div class="info-field">
+                <label>Sede:</label>
+                <strong>Unidad Profesional Interdisciplinaria</strong>
+            </div>
+            <div class="profile-footer-stats">
+                <div class="s-box"><span>Libros</span><strong>1</strong></div>
+                <div class="s-box"><span>Deuda</span><strong>$0.00</strong></div>
             </div>
         </div>
     </div>
@@ -99,4 +120,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
