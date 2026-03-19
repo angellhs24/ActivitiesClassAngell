@@ -33,7 +33,7 @@ const libros = [
         t: 'Química Orgánica', 
         a: 'Wade Jr.', 
         // Imagen de tubos de ensayo y laboratorio (reemplazo directo)
-        img: 'https://images.unsplash.com/photo-1532187863486-abf9d3a40257?q=80&w=400&auto=format&fit=crop' 
+        img: 'https://images.unsplash.com/photo-1532187863486-abf9d3a40257?auto=format&fit=crop&q=80&w=400' 
     },
     { 
         cat: 'Literatura', 
@@ -54,7 +54,7 @@ const libros = [
         t: 'Ingeniería de Vías', 
         a: 'López Pita', 
         // Imagen directa de vías de tren (la que ya te funcionaba)
-        img: 'https://images.unsplash.com/photo-1515165599668-859736569ec9?q=80&w=400&auto=format&fit=crop' 
+        img: 'https://images.unsplash.com/photo-1474487024267-582df14b4c33?auto=format&fit=crop&q=80&w=400' 
     }
 ];
 
