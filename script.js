@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     // Referencias
     const buttons = document.querySelectorAll('.btn-status');
     const searchBtn = document.getElementById('searchBtn');
@@ -6,13 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // MÓDULO DE MODALES (VENTANAS FLOTANTES)
     window.openModal = function(modalId) {
-        document.getElementById(modalId).style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Bloquea scroll fondo
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Bloquea scroll fondo
+        }
     }
 
     window.closeModal = function(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-        document.body.style.overflow = 'auto'; // Libera scroll
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Libera scroll
+        }
     }
 
     window.closeAllModals = function() {
@@ -33,13 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = e.target.closest('.book-card');
             const title = card.querySelector('h3').innerText;
             
+            const originalText = button.innerText;
             button.innerText = "Verificando...";
             button.style.opacity = "0.7";
+            button.disabled = true;
 
             setTimeout(() => {
                 alert(`[KnowledgeHub] El libro "${title}" está disponible para préstamo en UPIICSA.`);
-                button.innerText = "Consultar";
+                button.innerText = originalText;
                 button.style.opacity = "1";
+                button.disabled = false;
             }, 800);
         });
     });
@@ -49,9 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value.trim();
         if(query.length > 0) {
             alert(`Buscando: "${query}" en el sistema de bibliotecas...`);
+        } else {
+            alert("Por favor, ingresa un término de búsqueda.");
         }
     });
 
+    // Soporte para tecla Enter en el buscador
     searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') searchBtn.click();
     });
