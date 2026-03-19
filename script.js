@@ -6,7 +6,7 @@ const libros = [
     { cat: 'Química', t: 'Química Orgánica', a: 'Wade Jr.', img: 'https://unsplash.com/es/fotos/una-imagen-de-un-objeto-en-el-aire-niKqRplFKyU' },
     { cat: 'Literatura', t: 'Cien Años de Soledad', a: 'García Márquez', img: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400' },
     { cat: 'Transporte', t: 'Logística Global', a: 'Ronald Ballou', img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400' },
-    { cat: 'Ferroviaria', t: 'Ingeniería de Vías', a: 'López Pita', img: 'https://unsplash.com/es/fotos/puente-ferroviario-oxidado-sobre-un-rio-7foddqv_Tns' }
+    { cat: 'Ferroviaria', t: 'Ingeniería de Vías', a: 'López Pita', img: 'https://images.unsplash.com/photo-1768790997132-bb5f02b802e8?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
