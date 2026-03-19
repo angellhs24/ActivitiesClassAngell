@@ -1,3 +1,4 @@
+// BASE DE DATOS CON LINKS DIRECTOS (CORREGIDOS)
 const libros = [
     { 
         cat: 'Matemáticas', 
@@ -27,8 +28,7 @@ const libros = [
         cat: 'Química', 
         t: 'Química Orgánica', 
         a: 'Wade Jr.', 
-        // Link alternativo de Pexels (Directo)
-        img: 'https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=400' 
+        img: 'https://images.unsplash.com/photo-1532187863486-abf9d3a40257?auto=format&fit=crop&q=80&w=400' 
     },
     { 
         cat: 'Literatura', 
@@ -46,119 +46,76 @@ const libros = [
         cat: 'Ferroviaria', 
         t: 'Ingeniería de Vías', 
         a: 'López Pita', 
-        // Link alternativo de Pixabay (Directo)
-        img: 'https://cdn.pixabay.com/photo/2014/09/20/13/53/railway-453711_1280.jpg' 
+        img: 'https://images.unsplash.com/photo-1474487024267-582df14b4c33?auto=format&fit=crop&q=80&w=400' 
     }
 ];
 
-
-// Al cargar el documento
 document.addEventListener('DOMContentLoaded', () => {
-    // Mostramos los primeros 3 libros como "destacados" en el inicio
+    // Inicia con 3 destacados
     renderGrid('mainBookGrid', libros.slice(0, 3));
-    
-    // Configurar el buscador para que funcione con la tecla Enter
-    const searchInput = document.getElementById('searchInput');
-    if(searchInput) {
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') performSearch();
-        });
-    }
 });
 
-// GESTIÓN DE MODALES
+// --- LÓGICA DE INTERFAZ ---
+
 function openModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Evita scroll al estar abierto
-    }
+    document.getElementById(id).style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 }
 
 function closeModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
+    document.getElementById(id).style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
 
-// Cerrar modales al hacer clic fuera del contenido
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal-overlay')) {
-        event.target.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-};
-
-// MUESTRA TODOS LOS LIBROS EN EL CATÁLOGO (CON LOREM IPSUM)
+// Abrir Catálogo Completo (con Lorem Ipsum)
 function openFullCatalog() {
     renderGrid('subCatalogGrid', libros, true);
-    document.getElementById('catalogo-title').innerText = "Catálogo Institucional";
+    document.getElementById('catalogo-title').innerText = "Catálogo Institucional Completo";
     openModal('modal-catalogo');
 }
 
-// MUESTRA POR ACADEMIA/CATEGORÍA (CON LOREM IPSUM)
+// Abrir por Categoría (con Lorem Ipsum)
 function openSubCatalog(categoria) {
     const filtrados = libros.filter(l => l.cat === categoria);
-    document.getElementById('catalogo-title').innerText = `Biblioteca de ${categoria}`;
+    document.getElementById('catalogo-title').innerText = `Especialidad: ${categoria}`;
     renderGrid('subCatalogGrid', filtrados, true);
     openModal('modal-catalogo');
 }
 
-// FUNCIÓN MAESTRA PARA DIBUJAR LOS LIBROS
+// FUNCIÓN DE RENDERIZADO (Dibuja las tarjetas)
 function renderGrid(containerId, data, withLorem = false) {
     const container = document.getElementById(containerId);
     if (!container) return;
     
     container.innerHTML = '';
     
-    if (data.length === 0) {
-        container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 20px;">No se encontraron resultados.</p>';
-        return;
-    }
-
     data.forEach(libro => {
-        const desc = withLorem ? `<p style="color:#666; font-size:0.8rem; margin: 10px 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>` : '';
+        const desc = withLorem ? `<p style="color:#666; font-size:0.85rem; margin: 15px 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id porta nulla, ac maximus nisi.</p>` : '';
         
         container.innerHTML += `
             <div class="book-card">
-                <img src="${libro.img}" alt="${libro.t}" onerror="this.src='https://images.unsplash.com/photo-1543003923-4330f3396860?q=80&w=400'">
+                <img src="${libro.img}" alt="${libro.t}" style="width:100%; height:350px; object-fit:cover; border-radius:15px;">
                 <div class="book-info">
                     <small style="color:var(--secondary); font-weight:700;">${libro.cat}</small>
-                    <h3 style="margin:5px 0;">${libro.t}</h3>
+                    <h3 style="margin:5px 0; font-size:1.1rem;">${libro.t}</h3>
                     <p style="color:#888; font-size:0.9rem;">${libro.a}</p>
                     ${desc}
-                    <button class="btn-status" style="width:100%; padding:10px; border-radius:10px; border:1.5px solid var(--primary); background:none; color:var(--primary); font-weight:700; cursor:pointer; margin-top:10px;" onclick="alert('Verificando disponibilidad en sistema...')">Consultar</button>
+                    <button class="btn-status" style="width:100%; padding:12px; border-radius:12px; border:1px solid var(--primary); background:none; color:var(--primary); font-weight:700; cursor:pointer; margin-top:10px;" onclick="alert('Disponible en Sede UPIICSA')">Consultar</button>
                 </div>
             </div>
         `;
     });
 }
 
-// FUNCIÓN PARA EL BOTÓN INICIO (MUESTRA TODO EN LA PÁGINA PRINCIPAL)
 function showAllBooks() {
     renderGrid('mainBookGrid', libros);
-    document.getElementById('display-title').innerText = "Catálogo Completo";
-    document.getElementById('display-subtitle').innerText = "Explora todo nuestro acervo bibliográfico.";
+    document.getElementById('display-title').innerText = "Todos los Libros";
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-// FUNCIÓN DE BÚSQUEDA
 function performSearch() {
-    const query = document.getElementById('searchInput').value.toLowerCase().trim();
-    if (query === "") {
-        renderGrid('mainBookGrid', libros.slice(0, 3));
-        document.getElementById('display-title').innerText = "Libros Destacados";
-        return;
-    }
-
-    const filtrados = libros.filter(l => 
-        l.t.toLowerCase().includes(query) || 
-        l.a.toLowerCase().includes(query) || 
-        l.cat.toLowerCase().includes(query)
-    );
-
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const filtrados = libros.filter(l => l.t.toLowerCase().includes(query) || l.a.toLowerCase().includes(query));
     renderGrid('mainBookGrid', filtrados);
-    document.getElementById('display-title').innerText = `Resultados: "${query}"`;
+    document.getElementById('display-title').innerText = `Resultados: ${query}`;
 }
