@@ -1,12 +1,12 @@
 const libros = [
     { cat: 'Matemáticas', t: 'Cálculo Diferencial', a: 'Leithold', img: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400' },
     { cat: 'Programación', t: 'Clean Code', a: 'Robert C. Martin', img: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=400' },
-    { cat: 'Economía', t: 'Macroeconomía', a: 'Paul Krugman', img: 'https://images.unsplash.com/photo-1611974714024-4627aa57368d?q=80&w=400' },
-    { cat: 'Administración', t: 'Gestión Moderna', a: 'Peter Drucker', img: 'https://images.unsplash.com/photo-1454165833767-027ff33027b0?q=80&w=400' },
-    { cat: 'Química', t: 'Química Orgánica', a: 'Wade Jr.', img: 'https://images.unsplash.com/photo-1532187863486-abf9d3a40257?q=80&w=400' },
+    { cat: 'Economía', t: 'Macroeconomía', a: 'Paul Krugman', img: 'https://unsplash.com/es/fotos/pintura-abstracta-marron-y-negro-E-yHge4ibyk' },
+    { cat: 'Administración', t: 'Gestión Moderna', a: 'Peter Drucker', img: 'https://unsplash.com/es/fotos/pasar-a-mano-las-paginas-de-un-cuaderno-minimalista--iRILoeOS74' },
+    { cat: 'Química', t: 'Química Orgánica', a: 'Wade Jr.', img: 'https://unsplash.com/es/fotos/una-imagen-de-un-objeto-en-el-aire-niKqRplFKyU' },
     { cat: 'Literatura', t: 'Cien Años de Soledad', a: 'García Márquez', img: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400' },
     { cat: 'Transporte', t: 'Logística Global', a: 'Ronald Ballou', img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400' },
-    { cat: 'Ferroviaria', t: 'Ingeniería de Vías', a: 'López Pita', img: 'https://images.unsplash.com/photo-1474487024267-582df14b4c33?q=80&w=400' }
+    { cat: 'Ferroviaria', t: 'Ingeniería de Vías', a: 'López Pita', img: 'https://unsplash.com/es/fotos/puente-ferroviario-oxidado-sobre-un-rio-7foddqv_Tns' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
