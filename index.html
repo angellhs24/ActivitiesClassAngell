@@ -3,36 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca Universitaria | Home</title>
+    <title>Biblioteca Universitaria | KnowledgeHub</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
         <nav class="navbar">
             <div class="logo">Biblio<span>Uni</span></div>
             <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Catálogo</a></li>
-                <li><a href="#">Préstamos</a></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#categorias">Categorías</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#">Mi Cuenta</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="hero-content">
-            <h1>Encuentra tu próximo conocimiento</h1>
+            <h1>Explora el <br><span>Conocimiento</span></h1>
+            <p>Acceso digital y físico para la comunidad estudiantil de UPIICSA.</p>
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Buscar libros, autores, revistas...">
+                <input type="text" id="searchInput" placeholder="¿Qué libro o autor buscas hoy?">
                 <button id="searchBtn">Buscar</button>
             </div>
         </div>
     </section>
 
-    <main class="container">
-        <h2 class="section-title">Libros Destacados</h2>
+    <section class="stats-bar">
+        <div class="stat-item"><strong>+15k</strong> Títulos</div>
+        <div class="stat-item"><strong>24/7</strong> Sala Digital</div>
+        <div class="stat-item"><strong>UPIICSA</strong> Sede Central</div>
+    </section>
+
+    <section class="categories-section" id="categorias">
+        <h2 class="section-subtitle">Explorar por Facultad</h2>
+        <div class="category-grid">
+            <div class="cat-card">Ingeniería</div>
+            <div class="cat-card">Administración</div>
+            <div class="cat-card">Informática</div>
+            <div class="cat-card">Ciencias Sociales</div>
+        </div>
+    </section>
+
+    <main class="container" id="catalogo">
+        <div class="header-main">
+            <h2 class="section-title">Libros Destacados</h2>
+            <p>Selección recomendada para este semestre.</p>
+        </div>
+
         <div class="book-grid">
             <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400" alt="Libro de Programación">
+                <div class="badge">Nuevo</div>
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400" alt="JavaScript">
                 <div class="book-info">
                     <h3>Fundamentos de JS</h3>
                     <p>Autor: Tech Master</p>
@@ -40,15 +65,14 @@
                 </div>
             </div>
             <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1589998059171-988d887df64e?auto=format&fit=crop&q=80&w=400" alt="Libro de Diseño">
-                <div class="book-info">
+                <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Diseño UI/UX">                <div class="book-info">
                     <h3>Diseño UI/UX</h3>
                     <p>Autor: Creative Mind</p>
                     <button class="btn-status">Consultar</button>
                 </div>
             </div>
             <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=400" alt="Libro de Historia">
+                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400" alt="Historia">
                 <div class="book-info">
                     <h3>Estrategia Clásica</h3>
                     <p>Autor: Sun Tzu</p>
@@ -57,6 +81,10 @@
             </div>
         </div>
     </main>
+
+    <footer>
+        <p>&copy; 2026 Biblioteca Universitaria | Desarrollado para KnowledgeHub</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
