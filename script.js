@@ -1,52 +1,60 @@
-// Base de datos de libros con links directos corregidos
+// Base de datos de libros con links DIRECTOS A IMAGEN corregidos
 const libros = [
     { 
         cat: 'Matemáticas', 
         t: 'Cálculo Diferencial', 
         a: 'Leithold', 
-        img: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400' 
+        // Imagen de una pizarra con fórmulas
+        img: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400&auto=format&fit=crop' 
     },
     { 
         cat: 'Programación', 
         t: 'Clean Code', 
         a: 'Robert C. Martin', 
-        img: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=400' 
+        // Imagen de código fuente en una pantalla
+        img: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=400&auto=format&fit=crop' 
     },
     { 
         cat: 'Economía', 
         t: 'Macroeconomía', 
         a: 'Paul Krugman', 
-        img: 'https://images.unsplash.com/photo-1585681656782-4591d9cfef14?q=80&w=400&fit=crop' 
+        // Imagen de gráficas financieras (reemplazo directo)
+        img: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=400&auto=format&fit=crop' 
     },
     { 
         cat: 'Administración', 
         t: 'Gestión Moderna', 
         a: 'Peter Drucker', 
-        img: 'https://images.unsplash.com/photo-1761670835899-5a0248c7e7d8?q=80&w=400&fit=crop' 
+        // Imagen de reunión de negocios/estrategia (reemplazo directo)
+        img: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=400&auto=format&fit=crop' 
     },
     { 
         cat: 'Química', 
         t: 'Química Orgánica', 
         a: 'Wade Jr.', 
-        img: 'https://images.unsplash.com/photo-1532187863486-abf9d3a40257?q=80&w=400&fit=crop' 
+        // Imagen de tubos de ensayo y laboratorio (reemplazo directo)
+        img: 'https://images.unsplash.com/photo-1532187863486-abf9d3a40257?q=80&w=400&auto=format&fit=crop' 
     },
     { 
         cat: 'Literatura', 
         t: 'Cien Años de Soledad', 
         a: 'García Márquez', 
-        img: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400' 
+        // Imagen de un libro antiguo abierto
+        img: 'https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=400&auto=format&fit=crop' 
     },
     { 
         cat: 'Transporte', 
         t: 'Logística Global', 
         a: 'Ronald Ballou', 
-        img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400' 
+        // Imagen de contenedores de envío
+        img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400&auto=format&fit=crop' 
     },
     { 
         cat: 'Ferroviaria', 
         t: 'Ingeniería de Vías', 
         a: 'López Pita', 
-        img: 'https://images.unsplash.com/photo-1515165599668-859736569ec9?q=80&w=400' 
+        // Imagen directa de vías de tren (la que ya te funcionaba)
+        img: 'https://images.unsplash.com/photo-1515165599668-859736569ec9?q=80&w=400&auto=format&fit=crop' 
     }
 ];
 
