@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Universitaria | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Biblio<span>Uni</span></div>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Catálogo</a></li>
+                <li><a href="#">Préstamos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Encuentra tu próximo conocimiento</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar libros, autores, revistas...">
+                <button id="searchBtn">Buscar</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">Libros Destacados</h2>
+        <div class="book-grid">
+            <div class="book-card">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400" alt="Libro de Programación">
+                <div class="book-info">
+                    <h3>Fundamentos de JS</h3>
+                    <p>Autor: Tech Master</p>
+                    <button class="btn-status">Consultar</button>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="https://images.unsplash.com/photo-1589998059171-988d887df64e?auto=format&fit=crop&q=80&w=400" alt="Libro de Diseño">
+                <div class="book-info">
+                    <h3>Diseño UI/UX</h3>
+                    <p>Autor: Creative Mind</p>
+                    <button class="btn-status">Consultar</button>
+                </div>
+            </div>
+            <div class="book-card">
+                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=400" alt="Libro de Historia">
+                <div class="book-info">
+                    <h3>Estrategia Clásica</h3>
+                    <p>Autor: Sun Tzu</p>
+                    <button class="btn-status">Consultar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
