@@ -13,10 +13,10 @@
         <nav class="navbar">
             <div class="logo">Biblio<span>Uni</span></div>
             <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="categorias.html">Categorías</a></li>
-                <li><a href="catalogo.html">Catálogo</a></li>
-                <li><a href="cuenta.html">Mi Cuenta</a></li>
+                <li><a href="#" onclick="closeAllModals()">Inicio</a></li>
+                <li><a href="#" onclick="openModal('modal-categorias')">Categorías</a></li>
+                <li><a href="#" onclick="openModal('modal-catalogo')">Catálogo</a></li>
+                <li><a href="#" onclick="openModal('modal-cuenta')">Mi Cuenta</a></li>
             </ul>
         </nav>
     </header>
@@ -38,17 +38,7 @@
         <div class="stat-item"><strong>UPIICSA</strong> Sede Central</div>
     </section>
 
-    <section class="categories-section" id="categorias">
-        <h2 class="section-subtitle">Explorar por Facultad</h2>
-        <div class="category-grid">
-            <a href="categorias.html" style="text-decoration: none; color: inherit;"><div class="cat-card">Ingeniería</div></a>
-            <a href="categorias.html" style="text-decoration: none; color: inherit;"><div class="cat-card">Administración</div></a>
-            <a href="categorias.html" style="text-decoration: none; color: inherit;"><div class="cat-card">Informática</div></a>
-            <a href="categorias.html" style="text-decoration: none; color: inherit;"><div class="cat-card">Ciencias Sociales</div></a>
-        </div>
-    </section>
-
-    <main class="container" id="catalogo">
+    <main class="container" id="catalogo-principal">
         <div class="header-main">
             <h2 class="section-title">Libros Destacados</h2>
             <p>Selección recomendada para este semestre.</p>
@@ -64,16 +54,14 @@
                     <button class="btn-status">Consultar</button>
                 </div>
             </div>
-
             <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?q=80&w=870&auto=format&fit=crop" alt="Diseño UI/UX">                
+                <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?q=80&w=870" alt="Diseño UI/UX">
                 <div class="book-info">
                     <h3>Diseño UI/UX</h3>
                     <p>Autor: Creative Mind</p>
                     <button class="btn-status">Consultar</button>
                 </div>
             </div>
-
             <div class="book-card">
                 <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400" alt="Historia">
                 <div class="book-info">
@@ -84,6 +72,44 @@
             </div>
         </div>
     </main>
+
+    <div id="modal-categorias" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-categorias')">&times;</span>
+            <h2 class="section-title">Explorar Facultad</h2>
+            <div class="category-grid-modal">
+                <div class="cat-card">Ingeniería</div>
+                <div class="cat-card">Administración</div>
+                <div class="cat-card">Informática</div>
+                <div class="cat-card">Ciencias Sociales</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-catalogo" class="modal-overlay">
+        <div class="modal-content large">
+            <span class="close-btn" onclick="closeModal('modal-catalogo')">&times;</span>
+            <h2 class="section-title">Catálogo Completo</h2>
+            <p>Explora todos los recursos disponibles en KnowledgeHub.</p>
+            <div class="catalog-placeholder">
+                <p>Cargando base de datos de la biblioteca...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-cuenta" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal-cuenta')">&times;</span>
+            <h2 class="section-title">Mi Perfil</h2>
+            <div class="profile-detail">
+                <p><strong>Estudiante:</strong> Alumno UPIICSA</p>
+                <p><strong>Boleta:</strong> 2026-600000</p>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+                <p><strong>Préstamos Activos:</strong> 1 libro</p>
+                <p><strong>Adeudos:</strong> $0.00 MXN</p>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Biblioteca Universitaria | Desarrollado para KnowledgeHub</p>
