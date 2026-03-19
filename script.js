@@ -1,71 +1,57 @@
+// Base de datos de libros
+const libros = [
+    { cat: 'Matemáticas', t: 'Cálculo Diferencial', a: 'Leithold', img: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=400' },
+    { cat: 'Programación', t: 'Clean Code', a: 'Robert C. Martin', img: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=400' },
+    { cat: 'Economía', t: 'Macroeconomía', a: 'Paul Krugman', img: 'https://images.unsplash.com/photo-1611974714024-4627aa57368d?q=80&w=400' },
+    { cat: 'Administración', t: 'Gestión Moderna', a: 'Peter Drucker', img: 'https://images.unsplash.com/photo-1454165833767-027ff33027b0?q=80&w=400' },
+    { cat: 'Química', t: 'Química Orgánica', a: 'Wade Jr.', img: 'https://images.unsplash.com/photo-1532187863486-abf9d3a40257?q=80&w=400' },
+    { cat: 'Literatura', t: 'Cien Años de Soledad', a: 'García Márquez', img: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400' },
+    { cat: 'Transporte', t: 'Logística Global', a: 'Ronald Ballou', img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400' },
+    { cat: 'Ferroviaria', t: 'Ingeniería de Vías', a: 'López Pita', img: 'https://images.unsplash.com/photo-1474487024267-582df14b4c33?q=80&w=400' }
+];
+
 document.addEventListener('DOMContentLoaded', () => {
-
-    // Referencias
-    const buttons = document.querySelectorAll('.btn-status');
-    const searchBtn = document.getElementById('searchBtn');
-    const searchInput = document.getElementById('searchInput');
-
-    // MÓDULO DE MODALES (VENTANAS FLOTANTES)
-    window.openModal = function(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Bloquea scroll fondo
-        }
-    }
-
-    window.closeModal = function(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Libera scroll
-        }
-    }
-
-    window.closeAllModals = function() {
-        document.querySelectorAll('.modal-overlay').forEach(m => m.style.display = 'none');
-        document.body.style.overflow = 'auto';
-    }
-
-    // Cerrar modal al hacer clic fuera del cuadro blanco
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal-overlay')) {
-            closeAllModals();
-        }
-    }
-
-    // CONSULTA DE LIBROS
-    buttons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const card = e.target.closest('.book-card');
-            const title = card.querySelector('h3').innerText;
-            
-            const originalText = button.innerText;
-            button.innerText = "Verificando...";
-            button.style.opacity = "0.7";
-            button.disabled = true;
-
-            setTimeout(() => {
-                alert(`[KnowledgeHub] El libro "${title}" está disponible para préstamo en UPIICSA.`);
-                button.innerText = originalText;
-                button.style.opacity = "1";
-                button.disabled = false;
-            }, 800);
-        });
-    });
-
-    // BÚSQUEDA
-    searchBtn.addEventListener('click', () => {
-        const query = searchInput.value.trim();
-        if(query.length > 0) {
-            alert(`Buscando: "${query}" en el sistema de bibliotecas...`);
-        } else {
-            alert("Por favor, ingresa un término de búsqueda.");
-        }
-    });
-
-    // Soporte para tecla Enter en el buscador
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') searchBtn.click();
-    });
+    renderGrid('mainBookGrid', libros); // Carga inicial
 });
+
+function openModal(id) {
+    document.getElementById(id).style.display = 'flex';
+}
+
+function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+}
+
+// Abre el catálogo específico de una categoría
+function openSubCatalog(categoria) {
+    const filtrados = libros.filter(l => l.cat === categoria);
+    document.getElementById('catalogo-title').innerText = `Biblioteca de ${categoria}`;
+    renderGrid('subCatalogGrid', filtrados, true);
+    openModal('modal-catalogo');
+}
+
+// Función para renderizar libros
+function renderGrid(containerId, data, withLorem = false) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    
+    data.forEach(libro => {
+        const desc = withLorem ? `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>` : '';
+        container.innerHTML += `
+            <div class="book-card">
+                <img src="${libro.img}" alt="${libro.t}">
+                <div class="book-info">
+                    <h3>${libro.t}</h3>
+                    <p>Autor: ${libro.a}</p>
+                    ${desc}
+                    <button class="btn-status" onclick="alert('Consultando disponibilidad...')">Consultar</button>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function showAllBooks() {
+    renderGrid('mainBookGrid', libros);
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}

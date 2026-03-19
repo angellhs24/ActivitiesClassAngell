@@ -3,118 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca Universitaria | KnowledgeHub</title>
+    <title>KnowledgeHub | Sistema Bibliotecario</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">Biblio<span>Uni</span></div>
-            <ul class="nav-links">
-                <li><a href="#" onclick="closeAllModals()">Inicio</a></li>
-                <li><a href="#" onclick="openModal('modal-categorias')">Categorías</a></li>
-                <li><a href="#" onclick="openModal('modal-catalogo')">Catálogo</a></li>
-                <li><a href="#" onclick="openModal('modal-cuenta')">Mi Cuenta</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar">
+        <div class="logo">Biblio<span>Uni</span></div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showAllBooks()">Inicio</a></li>
+            <li><a href="#" onclick="openModal('modal-categorias')">Categorías</a></li>
+            <li><a href="#" onclick="openModal('modal-catalogo')">Catálogo</a></li>
+            <li><a href="#" onclick="openModal('modal-cuenta')">Mi Cuenta</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <h1>Explora el <br><span>Conocimiento</span></h1>
-            <p>Acceso digital y físico para la comunidad estudiantil de UPIICSA.</p>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="¿Qué libro o autor buscas hoy?">
-                <button id="searchBtn">Buscar</button>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Explora el <br><span>Conocimiento</span></h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="¿Qué libro o autor buscas hoy?">
+            <button id="searchBtn">Buscar</button>
+        </div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="header-main">
+        <h2 id="display-title">Libros Destacados</h2>
+        <p id="display-subtitle">Explora las novedades del catálogo general.</p>
+    </div>
+    <div class="book-grid" id="mainBookGrid">
+        </div>
+</main>
+
+<div id="modal-categorias" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modal-categorias')">&times;</span>
+        <h2 class="section-title">Especialidades</h2>
+        <div class="category-grid-modal">
+            <div class="cat-card" onclick="openSubCatalog('Matemáticas')">Matemáticas</div>
+            <div class="cat-card" onclick="openSubCatalog('Programación')">Programación</div>
+            <div class="cat-card" onclick="openSubCatalog('Economía')">Economía</div>
+            <div class="cat-card" onclick="openSubCatalog('Administración')">Administración</div>
+            <div class="cat-card" onclick="openSubCatalog('Química')">Química</div>
+            <div class="cat-card" onclick="openSubCatalog('Literatura')">Literatura</div>
+            <div class="cat-card" onclick="openSubCatalog('Transporte')">Transporte</div>
+            <div class="cat-card" onclick="openSubCatalog('Ferroviaria')">Ferroviaria</div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-catalogo" class="modal-overlay">
+    <div class="modal-content large">
+        <span class="close-btn" onclick="closeModal('modal-catalogo')">&times;</span>
+        <h2 id="catalogo-title" class="section-title">Catálogo Completo</h2>
+        <div class="sub-catalog-grid" id="subCatalogGrid">
+            </div>
+    </div>
+</div>
+
+<div id="modal-cuenta" class="modal-overlay">
+    <div class="modal-content profile-card">
+        <span class="close-btn" onclick="closeModal('modal-cuenta')">&times;</span>
+        <div class="profile-header">
+            <div class="profile-img">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="User">
+            </div>
+            <div class="profile-basic-info">
+                <h3>Alumno UPIICSA</h3>
+                <p class="tag">Estudiante Activo</p>
             </div>
         </div>
-    </section>
-
-    <section class="stats-bar">
-        <div class="stat-item"><strong>+15k</strong> Títulos</div>
-        <div class="stat-item"><strong>24/7</strong> Sala Digital</div>
-        <div class="stat-item"><strong>UPIICSA</strong> Sede Central</div>
-    </section>
-
-    <main class="container" id="catalogo-principal">
-        <div class="header-main">
-            <h2 class="section-title">Libros Destacados</h2>
-            <p>Selección recomendada para este semestre.</p>
-        </div>
-
-        <div class="book-grid">
-            <div class="book-card">
-                <div class="badge">Nuevo</div>
-                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400" alt="JavaScript">
-                <div class="book-info">
-                    <h3>Fundamentos de JS</h3>
-                    <p>Autor: Tech Master</p>
-                    <button class="btn-status">Consultar</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?q=80&w=870" alt="Diseño UI/UX">
-                <div class="book-info">
-                    <h3>Diseño UI/UX</h3>
-                    <p>Autor: Creative Mind</p>
-                    <button class="btn-status">Consultar</button>
-                </div>
-            </div>
-            <div class="book-card">
-                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400" alt="Historia">
-                <div class="book-info">
-                    <h3>Estrategia Clásica</h3>
-                    <p>Autor: Sun Tzu</p>
-                    <button class="btn-status">Consultar</button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <div id="modal-categorias" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal-categorias')">&times;</span>
-            <h2 class="section-title">Explorar Facultad</h2>
-            <div class="category-grid-modal">
-                <div class="cat-card">Ingeniería</div>
-                <div class="cat-card">Administración</div>
-                <div class="cat-card">Informática</div>
-                <div class="cat-card">Ciencias Sociales</div>
+        <div class="profile-body">
+            <div class="info-row"><span>Carrera:</span> <strong>Ingeniería en Informática</strong></div>
+            <div class="info-row"><span>Boleta:</span> <strong>2026-600000</strong></div>
+            <div class="info-row"><span>Estatus:</span> <strong style="color: var(--primary);">Regular</strong></div>
+            <div class="profile-stats">
+                <div class="p-stat"><strong>1</strong><br>Préstamo</div>
+                <div class="p-stat"><strong>$0.00</strong><br>Multas</div>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="modal-catalogo" class="modal-overlay">
-        <div class="modal-content large">
-            <span class="close-btn" onclick="closeModal('modal-catalogo')">&times;</span>
-            <h2 class="section-title">Catálogo Completo</h2>
-            <p>Explora todos los recursos disponibles en KnowledgeHub.</p>
-            <div class="catalog-placeholder">
-                <p>Cargando base de datos de la biblioteca...</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-cuenta" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modal-cuenta')">&times;</span>
-            <h2 class="section-title">Mi Perfil</h2>
-            <div class="profile-detail">
-                <p><strong>Estudiante:</strong> Alumno UPIICSA</p>
-                <p><strong>Boleta:</strong> 2026-600000</p>
-                <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
-                <p><strong>Préstamos Activos:</strong> 1 libro</p>
-                <p><strong>Adeudos:</strong> $0.00 MXN</p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Biblioteca Universitaria | Desarrollado para KnowledgeHub</p>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
