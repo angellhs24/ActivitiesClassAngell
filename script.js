@@ -16,19 +16,19 @@ const libros = [
         cat: 'Economía', 
         t: 'Macroeconomía', 
         a: 'Paul Krugman', 
-        img: 'https://images.unsplash.com/photo-1611974714024-4627aa57368d?auto=format&fit=crop&q=80&w=400' 
+        img: 'https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=400&q=80' 
     },
     { 
         cat: 'Administración', 
         t: 'Gestión Moderna', 
         a: 'Peter Drucker', 
-        img: 'https://images.unsplash.com/photo-1454165833767-027ff33027b0?auto=format&fit=crop&q=80&w=400' 
+        img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80' 
     },
     { 
         cat: 'Química', 
         t: 'Química Orgánica', 
         a: 'Wade Jr.', 
-        img: 'https://images.unsplash.com/photo-1532187863486-abf9d3a40257?auto=format&fit=crop&q=80&w=400' 
+        img: 'https://images.unsplash.com/photo-1581093588401-22c2c9c4f8b2?auto=format&fit=crop&w=400&q=80' 
     },
     { 
         cat: 'Literatura', 
@@ -46,7 +46,7 @@ const libros = [
         cat: 'Ferroviaria', 
         t: 'Ingeniería de Vías', 
         a: 'López Pita', 
-        img: 'https://images.unsplash.com/photo-1474487024267-582df14b4c33?auto=format&fit=crop&q=80&w=400' 
+        img: 'https://images.unsplash.com/photo-1504198458649-3128b932f49b?auto=format&fit=crop&w=400&q=80' 
     }
 ];
 
@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- LÓGICA DE INTERFAZ ---
-
 function openModal(id) {
     document.getElementById(id).style.display = 'flex';
     document.body.style.overflow = 'hidden';
